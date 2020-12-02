@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
-import {Restaurant} from "../model/restaurant.model";
 import {Observable, of} from "rxjs";
 import {HttpClient} from "@angular/common/http";
+import { Restaurant } from '../features/home-page/model/restaurant.model';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +28,7 @@ export class RestaurantService {
         id: 1,
         name: '',
         where: '',
-      }])
+      }]);
    // return this.http.get<Restaurant[]>(this.resourceUrl);
   }
 }

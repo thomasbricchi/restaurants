@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
-import {Restaurant} from "../../../../model/restaurant.model";
-import {RestaurantService} from "../../../../services/restaurant.service";
+import { Restaurant } from '../../model/restaurant.model';
+import { RestaurantService } from '../../../../services/restaurant.service';
 
 @Component({
   selector: 'app-list',

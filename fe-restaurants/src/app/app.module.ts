@@ -2,21 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { ListComponent } from './features/home-page/components/list/list.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AgmCoreModule } from '@agm/core';
+import { HomePageModule } from './features/home-page/home-page.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ListComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDrort0fdvAQ3azDgWKu0RQVYWRhwzUppI'
-    })
+    HomePageModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

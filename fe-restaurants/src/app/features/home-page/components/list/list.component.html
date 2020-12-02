@@ -1,5 +1,9 @@
-<div *ngFor="let restaurant of restaurant$ | async">
+<div class="list-restaurant vh-100">
+  <div *ngFor="let restaurant of restaurant$ | async">
 
-  {{restaurant |json}}
+    {{restaurant |json}}
+    <app-card-restaurant></app-card-restaurant>
 
+  </div>
 </div>
+
