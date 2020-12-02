@@ -1,4 +1,4 @@
-package com.thomas.businesslist.domain;
+package com.thomas.restaurants.domain;
 
 import lombok.Data;
 

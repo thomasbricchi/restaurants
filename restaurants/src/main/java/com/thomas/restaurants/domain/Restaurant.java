@@ -1,9 +1,9 @@
-package com.thomas.businesslist.domain;
+package com.thomas.restaurants.domain;
 
-import com.sun.istack.NotNull;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -29,12 +29,15 @@ public class Restaurant implements Serializable {
     @Column(name = "ADDRESS", nullable = false)
     private String address;
 
+    @Column()
+    private String cuisineType;
+
     @OneToMany(
         mappedBy = "resturant",
         cascade = CascadeType.ALL,
         orphanRemoval = true
     )
-    private List<Day> days = new ArrayList<>();
+    private List<com.thomas.restaurants.domain.Day> days = new ArrayList<>();
 
 
     public void addDay(Day day) {

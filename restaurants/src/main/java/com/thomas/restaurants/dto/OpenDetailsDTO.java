@@ -1,7 +1,9 @@
-package com.thomas.businesslist.dto;
+package com.thomas.restaurants.dto;
 
-import com.thomas.businesslist.domain.TypeEnum;
+import com.thomas.restaurants.domain.TypeEnum;
+import lombok.Data;
 
+@Data
 public class OpenDetailsDTO {
 
     String start;

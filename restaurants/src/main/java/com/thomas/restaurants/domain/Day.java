@@ -1,6 +1,7 @@
-package com.thomas.businesslist.domain;
+package com.thomas.restaurants.domain;
 
 import com.sun.istack.NotNull;
+import com.thomas.restaurants.domain.Restaurant;
 import lombok.Data;
 
 import javax.persistence.*;

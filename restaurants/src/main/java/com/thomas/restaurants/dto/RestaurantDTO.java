@@ -1,17 +1,21 @@
-package com.thomas.businesslist.dto;
+package com.thomas.restaurants.dto;
 
-import com.thomas.businesslist.domain.Day;
+import lombok.Data;
 
+import java.time.DayOfWeek;
 import java.util.List;
 import java.util.Map;
 
+@Data
 public class RestaurantDTO {
 
     long id;
 
     String name;
 
-    String where;
+    String address;
 
-    Map<Day, List<OpenDetailsDTO>> days;
+    String cuisineType;
+
+    Map<DayOfWeek, List<OpenDetailsDTO>> openDetails;
 }

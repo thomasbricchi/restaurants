@@ -1,6 +1,6 @@
-package com.thomas.businesslist.repository;
+package com.thomas.restaurants.repository;
 
-import com.thomas.businesslist.domain.Restaurant;
+import com.thomas.restaurants.domain.Restaurant;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
