@@ -22,10 +22,11 @@ public class Day implements Serializable {
 
     @NotNull
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private DayOfWeek dayOfWeek;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Restaurant resturant;
+    private Restaurant restaurant;
 
 
     @OneToMany(

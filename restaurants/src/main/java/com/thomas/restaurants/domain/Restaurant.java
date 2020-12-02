@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "Resturant")
+@Table(name = "Restaurant")
 @Data
 public class Restaurant implements Serializable {
 
@@ -33,7 +33,7 @@ public class Restaurant implements Serializable {
     private String cuisineType;
 
     @OneToMany(
-        mappedBy = "resturant",
+        mappedBy = "restaurant",
         cascade = CascadeType.ALL,
         orphanRemoval = true
     )
@@ -42,12 +42,12 @@ public class Restaurant implements Serializable {
 
     public void addDay(Day day) {
         days.add(day);
-        day.setResturant(this);
+        day.setRestaurant(this);
     }
 
     public void removeDay(Day day) {
         days.remove(day);
-        day.setResturant(null);
+        day.setRestaurant(null);
     }
 
 

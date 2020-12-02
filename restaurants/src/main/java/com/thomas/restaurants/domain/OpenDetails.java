@@ -28,6 +28,7 @@ public class OpenDetails implements Serializable {
 
     @NotNull
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private TypeEnum type;
 
 
