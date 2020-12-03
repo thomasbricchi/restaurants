@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Restaurant} from "../../model/restaurant.model";
+import { Component, Input, OnInit } from '@angular/core';
+import { Restaurant } from '../../model/restaurant.model';
 
 @Component({
   selector: 'app-restaurant-details',
@@ -11,10 +11,13 @@ export class RestaurantDetailsComponent implements OnInit {
   @Input()
   restaurant: Restaurant;
 
+  listDays: any[];
+
   constructor() {
   }
 
   ngOnInit(): void {
+
   }
 
 }

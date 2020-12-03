@@ -1,5 +1,5 @@
-import {DayOfWeek} from './enum/day-of-week.enum';
-import {OpenDetails} from './open-details.model';
+import { DayOfWeek } from './enum/day-of-week.enum';
+import { Day, OpenDetails } from './open-details.model';
 
 
 export interface Restaurant {
@@ -9,5 +9,5 @@ export interface Restaurant {
   cuisineType: string;
   latitude?: number;
   longitude?: number;
-  openDetails?: Map<DayOfWeek, OpenDetails[]>;
+  openDetails?: Day[];
 }

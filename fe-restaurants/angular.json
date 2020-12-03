@@ -76,7 +76,7 @@
               "browserTarget": "fe-restaurants:build:production"
             },
             "testing": {
-              "browserTarget": "secure-safe:build:testing",
+              "browserTarget": "fe-restaurants:build:testing",
               "proxyConfig": "proxy.conf.json"
             }
           }
