@@ -3,8 +3,8 @@ package com.thomas.restaurants.dto;
 import lombok.Data;
 
 import java.time.DayOfWeek;
+import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 @Data
 public class RestaurantDTO {
@@ -17,5 +17,5 @@ public class RestaurantDTO {
 
     String cuisineType;
 
-    Map<DayOfWeek, List<OpenDetailsDTO>> openDetails;
+    LinkedHashMap<DayOfWeek, List<OpenDetailsDTO>> openDetails;
 }

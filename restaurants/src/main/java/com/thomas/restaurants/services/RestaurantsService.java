@@ -8,6 +8,8 @@ import com.thomas.restaurants.dto.RestaurantDTO;
 import com.thomas.restaurants.repository.RestaurantRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.DayOfWeek;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -41,13 +43,12 @@ public class RestaurantsService {
 
     private RestaurantDTO toDetailsDto(Restaurant restaurant) {
         final RestaurantDTO restaurantDTO = toSimplyDto(restaurant);
-        restaurantDTO.setOpenDetails(
-            restaurant.getDays().stream().collect(
-                Collectors.toMap(Day::getDayOfWeek,
-                    day -> day.getOpenDetails().stream().map(this::toDto).collect(Collectors.toList())
-                )
-            )
+
+        final LinkedHashMap<DayOfWeek, List<OpenDetailsDTO>> openDetailsMap = new LinkedHashMap<>();
+        restaurant.getDays().forEach(day ->
+            openDetailsMap.put(day.getDayOfWeek(), day.getOpenDetails().stream().map(this::toDto).collect(Collectors.toList()))
         );
+        restaurantDTO.setOpenDetails(openDetailsMap);
 
         return restaurantDTO;
     }
