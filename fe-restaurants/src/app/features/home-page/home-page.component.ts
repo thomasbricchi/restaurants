@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Restaurant } from './model/restaurant.model';
-import { RestaurantService } from '../../services/restaurant.service';
-import { EMPTY, Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import {Component, OnInit} from '@angular/core';
+import {Restaurant} from './model/restaurant.model';
+import {RestaurantService} from '../../services/restaurant.service';
+import {EMPTY, Observable} from 'rxjs';
 
 @Component({
   selector: 'app-home-page',
@@ -23,7 +22,7 @@ export class HomePageComponent implements OnInit {
 
   selectRestaurant(restaurantSelected: Restaurant) {
     if (this.lastRestaurantSelected !== restaurantSelected.id) {
-      this.restaurantSelected$ = this.restaurantService.getOne(restaurantSelected.id).pipe(tap(r => console.log(r)));
+      this.restaurantSelected$ = this.restaurantService.getOne(restaurantSelected.id);
       this.lastRestaurantSelected = restaurantSelected.id;
     } else {
       this.restaurantSelected$ = EMPTY;

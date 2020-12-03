@@ -16,7 +16,7 @@
     <label *ngFor="let op of openingHours">
       {{op.label}}
       <label *ngFor="let od of op.openingDetails">
-        {{od.type}} {{od.open}}- {{od.close}}
+        {{od | json}}
       </label>
     </label>
   </div>

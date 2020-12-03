@@ -13,17 +13,13 @@ export class RestaurantDetailsComponent implements OnInit {
   restaurant: Restaurant;
 
   listDays: any[];
-  private openingHours: OpeningHours[];
-
+  openingHours: OpeningHours[];
 
   constructor() {
   }
 
   ngOnInit(): void {
-
     this.openingHours = transformDaysInOpeningHours(this.restaurant.openDetails);
-    console.log(this.openingHours);
-
   }
 
 }

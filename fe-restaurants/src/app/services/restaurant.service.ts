@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { DayOfWeek } from '../features/home-page/model/enum/day-of-week.enum';
-import { Day, OpenDetails } from '../features/home-page/model/open-details.model';
-import { Restaurant } from '../features/home-page/model/restaurant.model';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
+import {DayOfWeek} from '../features/home-page/model/enum/day-of-week.enum';
+import {Day} from '../features/home-page/model/open-details.model';
+import {Restaurant} from '../features/home-page/model/restaurant.model';
+import {HttpClient} from '@angular/common/http';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -40,7 +40,7 @@ export const transformToMap = (openDetails: any): Day[] => {
   let returnedOpen = [];
   Object.keys(openDetails).forEach(day => {
     const dayOfWeek = day as unknown as DayOfWeek;
-    returnedOpen = [...returnedOpen, {dayOfWeek, ...openDetails[dayOfWeek]}];
+    returnedOpen = [...returnedOpen, {dayOfWeek, openDetails: openDetails[dayOfWeek]}];
   });
   return returnedOpen;
 };
