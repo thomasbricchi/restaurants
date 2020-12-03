@@ -18,11 +18,14 @@
       <div class="row">
         <div class="col-4"> Opening Hours:</div>
         <div class="col-8">
-          <div class="row" *ngFor="let od of op.openingHours">
-            <label>
-              {{od.start}} - {{od.end}}
-            </label>
-          </div>
+          <label *ngIf="openingHours.length === 0; else pippo"> Close</label>
+          <ng-template #pippo>
+            <div class="row" *ngFor="let od of op.openingHours">
+              <label>
+                {{od.start}} - {{od.end}}
+              </label>
+            </div>
+          </ng-template>
         </div>
       </div>
     </div>
