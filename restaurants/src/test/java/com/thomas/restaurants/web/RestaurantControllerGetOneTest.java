@@ -9,7 +9,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MvcResult;
 
 import java.time.DayOfWeek;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -22,8 +21,6 @@ public class RestaurantControllerGetOneTest extends BaseRestIntegrationTest {
 
     @Test
     public void shouldRetrieveAllRestaurants() throws Exception {
-
-
         final MvcResult mvcResult = this.mvc
             .perform(get("/api/restaurants/1")
                 .accept(MediaType.APPLICATION_JSON)
