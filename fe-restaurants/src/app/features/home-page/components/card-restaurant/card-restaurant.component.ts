@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Restaurant} from "../../model/restaurant.model";
 
 @Component({
   selector: 'app-card-restaurant',
   templateUrl: './card-restaurant.component.html',
   styleUrls: ['./card-restaurant.component.css']
 })
-export class CardRestaurantComponent implements OnInit {
+export class CardRestaurantComponent {
 
-  constructor() { }
+  @Input()
+  restaurant: Restaurant;
 
-  ngOnInit(): void {
-  }
+  @Output()
+  restaurantClicked = new EventEmitter<Restaurant>();
 
 }

@@ -1,10 +1,16 @@
+<nav class="navbar navbar-light bg-light">
+  <h2>Restaurant</h2>
+</nav>
 <div class="container-fluid">
   <div class="row">
     <div class="col-4">
-      <app-list></app-list>
+      <app-list
+        [restaurants]="restaurants$ | async"
+        (restaurantClicked)="selectRestaurant($event)"></app-list>
     </div>
     <div class="col-8">
-      MAPPA
+      <app-restaurant-details [restaurant]="restaurantSelected$ | async"></app-restaurant-details>
+      <app-map></app-map>
     </div>
   </div>
 </div>

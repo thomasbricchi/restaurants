@@ -1,10 +1,10 @@
-<div class="card stretched-link bg-light mb-3" style="max-width: 540px;">
+<div class="card bg-light mb-3 clicked" style="max-width: 540px;" (click)="restaurantClicked.emit()">
+  <h5 class="card-header">{{restaurant.name}}</h5>
   <div class="row no-gutters">
     <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <div class="card-body text-primary">
+        <p class="card-text">{{restaurant.address}}</p>
+        <p class="card-text"><small class="text-muted"><b>Type of cuisine: </b>{{restaurant.cuisineType}}</small></p>
       </div>
     </div>
     <div class="col-md-4">

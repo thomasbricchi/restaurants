@@ -1,9 +1,9 @@
 <div class="list-restaurant vh-100">
-  <div *ngFor="let restaurant of restaurant$ | async">
-
-    {{restaurant |json}}
-    <app-card-restaurant></app-card-restaurant>
-
+  <div class="container">
+    <div *ngFor="let restaurant of restaurants">
+      <app-card-restaurant [restaurant]="restaurant"
+                           (restaurantClicked)="restaurantClicked.emit(restaurant)"
+      ></app-card-restaurant>
+    </div>
   </div>
 </div>
-

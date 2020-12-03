@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Restaurant} from "./model/restaurant.model";
+import {RestaurantService} from "../../services/restaurant.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-home-page',
@@ -6,11 +9,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-
-  constructor() {
+  ngOnInit(): void {
+    this.restaurants$ = this.restaurantService.loadAll();
   }
 
-  ngOnInit(): void {
+  restaurantSelected$: Observable<Restaurant>;
+  restaurants$: Observable<Restaurant[]>;
+
+  constructor(private restaurantService: RestaurantService) {
+  }
+
+
+  selectRestaurant(restaurantSelected: Restaurant) {
+    this.restaurantSelected$ = this.restaurantService.getOne(restaurantSelected.id);
   }
 
 }
