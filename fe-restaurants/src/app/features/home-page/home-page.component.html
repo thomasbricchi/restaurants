@@ -9,7 +9,9 @@
         (restaurantClicked)="selectRestaurant($event)"></app-list>
     </div>
     <div class="col-8">
-      <app-restaurant-details [restaurant]="restaurantSelected$ | async"></app-restaurant-details>
+      <ng-container *ngIf="restaurantSelected$ | async as restaurantSelected">
+        <app-restaurant-details [restaurant]="restaurantSelected"></app-restaurant-details>
+      </ng-container>
       <app-map [restaurants]="restaurants$ | async"></app-map>
     </div>
   </div>
