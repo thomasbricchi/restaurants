@@ -1,5 +1,4 @@
-import { DayOfWeek } from './enum/day-of-week.enum';
-import { Day, OpenDetails } from './open-details.model';
+import { Day } from './day.model';
 
 
 export interface Restaurant {

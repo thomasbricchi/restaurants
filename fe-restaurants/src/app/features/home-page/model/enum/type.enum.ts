@@ -1,3 +1,3 @@
-export enum Situation {
+export enum TypeEnum {
   OPEN, CLOSE
 }
