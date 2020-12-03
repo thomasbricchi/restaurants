@@ -1,7 +1,7 @@
 <div class="card bg-light over">
   <div class="row">
     <div class="col">
-      <img src="..." class="card-img-top" alt="...">
+      <img [src]="'assets/restaurantid'+restaurant.id+'.JPG'" class="card-img-top" alt="">
     </div>
     <div class="col">
       <button type="button" class="close" aria-label="Close">
@@ -13,19 +13,27 @@
   <div class="card-body">
     <p class="card-text"><b>Address: </b>{{restaurant.address}}</p>
     <p class="card-text"><b>Cuisine Type: </b>{{restaurant.cuisineType}}</p>
+    <p class="card-text"><b>Opening Hours:</b></p>
     <div *ngFor="let op of openingHours">
-      <div class="row"> {{op.label}}</div>
-      <div class="row">
-        <div class="col-4"> Opening Hours:</div>
-        <div class="col-8">
-          <label *ngIf="openingHours.length === 0; else pippo"> Close</label>
-          <ng-template #pippo>
-            <div class="row" *ngFor="let od of op.openingHours">
-              <label>
-                {{od.start}} - {{od.end}}
-              </label>
-            </div>
-          </ng-template>
+      <div class="row ml-5">
+        <div class="col-5">
+          <div> {{op.label | titlecase}}</div>
+        </div>
+        <div class="col-7">
+          <div class="row">
+            <label *ngIf="op.openingHours.length === 0; else closing">Close</label>
+            <ng-template #closing>
+              <div *ngFor="let od of op.openingHours; let i = index;">
+                <label>
+                  <ng-container *ngIf="i > 0">
+                    ,
+                  </ng-container>
+                  {{od.start}} - {{od.end}}
+                </label>
+              </div>
+            </ng-template>
+          </div>
+
         </div>
       </div>
     </div>
