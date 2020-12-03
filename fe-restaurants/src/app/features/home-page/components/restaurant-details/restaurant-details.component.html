@@ -1,18 +1,26 @@
-  <div class="card text-white bg-info over">
-    <div class="row">
-      <div class="col">
-        <img src="..." class="card-img-top" alt="...">
-      </div>
-      <div class="col">
-        <button type="button" class="close" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+<div class="card text-white bg-info over">
+  <div class="row">
+    <div class="col">
+      <img src="..." class="card-img-top" alt="...">
     </div>
-    <h5 class="card-header">{{restaurant.name}}</h5>
-    <div class="card-body">
-      <p class="card-text">{{restaurant.address}}</p>
-      <p class="card-text">{{restaurant.cuisineType}}</p>
+    <div class="col">
+      <button type="button" class="close" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
   </div>
+  <h5 class="card-header">{{restaurant.name}}</h5>
+  <div class="card-body">
+    <p class="card-text">{{restaurant.address}}</p>
+    <p class="card-text">{{restaurant.cuisineType}}</p>
+    <label *ngFor="let op of openingHours">
+      {{op.label}}
+      <label *ngFor="let od of op.openingDetails">
+        {{od.type}} {{od.open}}- {{od.close}}
+      </label>
+    </label>
+  </div>
+
+
+</div>
 

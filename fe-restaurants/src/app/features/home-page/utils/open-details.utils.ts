@@ -1,4 +1,4 @@
-import { Day, OpenDetails } from '../model/open-details.model';
+import {Day, OpenDetails} from '../model/open-details.model';
 
 export const transformDaysInOpeningHours =
   (days: Day[]): OpeningHours[] => {

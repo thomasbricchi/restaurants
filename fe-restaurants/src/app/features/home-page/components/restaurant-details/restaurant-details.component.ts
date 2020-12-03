@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Restaurant } from '../../model/restaurant.model';
+import {Component, Input, OnInit} from '@angular/core';
+import {Restaurant} from '../../model/restaurant.model';
+import {OpeningHours, transformDaysInOpeningHours} from "../../utils/open-details.utils";
 
 @Component({
   selector: 'app-restaurant-details',
@@ -12,11 +13,16 @@ export class RestaurantDetailsComponent implements OnInit {
   restaurant: Restaurant;
 
   listDays: any[];
+  private openingHours: OpeningHours[];
+
 
   constructor() {
   }
 
   ngOnInit(): void {
+
+    this.openingHours = transformDaysInOpeningHours(this.restaurant.openDetails);
+    console.log(this.openingHours);
 
   }
 
