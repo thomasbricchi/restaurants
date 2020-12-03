@@ -1,6 +1,6 @@
-INSERT INTO RESTAURANT (ID,ADDRESS,NAME,CUISINE_TYPE) VALUES(1,'La Pasta',' Niederdorfstrasse 80, 8001 Zürich, Schweiz','Italienisch');
-INSERT INTO RESTAURANT (ID,ADDRESS,NAME,CUISINE_TYPE) VALUES(2,'Heugümper','Waaggasse 4, 8001 Zürich, Schweiz','Restaurant mit Fusionsküche');
-INSERT INTO RESTAURANT (ID,ADDRESS,NAME,CUISINE_TYPE) VALUES(3,'Mesa','Weinbergstrasse 75, 8006 Zürich, Schweiz','Europäischer');
+INSERT INTO RESTAURANT (ID,ADDRESS,NAME,CUISINE_TYPE) VALUES(1,'Niederdorfstrasse 80, 8001 Zürich, Schweiz','La Pasta','Italienisch');
+INSERT INTO RESTAURANT (ID,ADDRESS,NAME,CUISINE_TYPE) VALUES(2,'Waaggasse 4, 8001 Zürich, Schweiz','Heugümper','Restaurant mit Fusionsküche');
+INSERT INTO RESTAURANT (ID,ADDRESS,NAME,CUISINE_TYPE) VALUES(3,'Weinbergstrasse 75, 8006 Zürich, Schweiz','Mesa','Europäischer');
 
 
 INSERT INTO DAY (ID,DAY_OF_WEEK,RESTAURANT_ID) VALUES (1,'MONDAY',1);
