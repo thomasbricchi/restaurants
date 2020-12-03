@@ -10,7 +10,7 @@
     </div>
     <div class="col-8">
       <app-restaurant-details [restaurant]="restaurantSelected$ | async"></app-restaurant-details>
-      <app-map></app-map>
+      <app-map [restaurants]="restaurants$ | async"></app-map>
     </div>
   </div>
 </div>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Restaurant} from "../../model/restaurant.model";
 
 @Component({
   selector: 'app-map',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  restaurants: Restaurant[];
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
