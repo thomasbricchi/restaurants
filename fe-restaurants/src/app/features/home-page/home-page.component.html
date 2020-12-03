@@ -1,14 +1,14 @@
 <nav class="navbar navbar-light bg-light">
-  <h2>Restaurant</h2>
+  <img src="assets/logo_restaurants.png" class="d-inline-block align-top" alt="">
 </nav>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-4">
+    <div class="col-3">
       <app-list
         [restaurants]="restaurants$ | async"
         (restaurantClicked)="selectRestaurant($event)"></app-list>
     </div>
-    <div class="col-8">
+    <div class="col-9">
       <ng-container *ngIf="restaurantSelected$ | async as restaurantSelected">
         <app-restaurant-details [restaurant]="restaurantSelected"></app-restaurant-details>
       </ng-container>

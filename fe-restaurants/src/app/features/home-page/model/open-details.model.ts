@@ -8,7 +8,7 @@ export interface Day {
 }
 
 export interface OpenDetails {
-  open: string;
-  close: string;
+  start: string;
+  end: string;
   type: Situation;
 }

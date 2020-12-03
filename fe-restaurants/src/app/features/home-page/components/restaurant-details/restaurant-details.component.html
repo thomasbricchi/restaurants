@@ -1,4 +1,4 @@
-<div class="card text-white bg-info over">
+<div class="card bg-light over">
   <div class="row">
     <div class="col">
       <img src="..." class="card-img-top" alt="...">
@@ -11,14 +11,21 @@
   </div>
   <h5 class="card-header">{{restaurant.name}}</h5>
   <div class="card-body">
-    <p class="card-text">{{restaurant.address}}</p>
-    <p class="card-text">{{restaurant.cuisineType}}</p>
-    <label *ngFor="let op of openingHours">
-      {{op.label}}
-      <label *ngFor="let od of op.openingDetails">
-        {{od | json}}
-      </label>
-    </label>
+    <p class="card-text"><b>Address: </b>{{restaurant.address}}</p>
+    <p class="card-text"><b>Cuisine Type: </b>{{restaurant.cuisineType}}</p>
+    <div *ngFor="let op of openingHours">
+      <div class="row"> {{op.label}}</div>
+      <div class="row">
+        <div class="col-4"> Opening Hours:</div>
+        <div class="col-8">
+          <div class="row" *ngFor="let od of op.openingDetails">
+            <label>
+              {{od.start}} - {{od.end}}
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
 
