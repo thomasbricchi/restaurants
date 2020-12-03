@@ -4,24 +4,26 @@ import { OpeningHours } from '../model/opening-hours.model';
 
 export const transformDaysToOpeningDays = (days: Day[]): OpeningDays[] => {
 
-  return days
-    .reduce((acc: OpeningDays[], value: Day) => {
-      if (acc.length === 0) {
-        acc = [new OpeningDays(value.dayOfWeek, value.openingHours)];
-      } else {
-        const lastOpening = acc[acc.length - 1];
-        if (JSON.stringify(lastOpening.openingHours) === JSON.stringify(value.openingHours)) {
-          lastOpening.to = value.dayOfWeek;
-        } else {
-          acc = [...acc, new OpeningDays(value.dayOfWeek, value.openingHours)];
+    return days
+      .reduce((openingDays: OpeningDays[], day: Day) => {
+        if (isEmpty(openingDays)) {
+          return [new OpeningDays(day.dayOfWeek, day.openingHours)];
         }
-      }
-      return acc;
-    }, []);
-};
+        const lastOpeningDay = takeLatestOpeningDays(openingDays);
+        if (isEquals(lastOpeningDay.openingHours, day.openingHours)) {
+          lastOpeningDay.to = day.dayOfWeek;
+          return openingDays;
+        }
+        return [...openingDays, new OpeningDays(day.dayOfWeek, day.openingHours)];
+      }, []);
+  }
+;
+
+const isEmpty = (arr: any[]): boolean => arr.length === 0;
+const isEquals = (obj1: any, obj2: any) => JSON.stringify(obj1) === JSON.stringify(obj2);
+const takeLatestOpeningDays = (openingDays: OpeningDays[]) => openingDays[openingDays.length - 1];
 
 export class OpeningDays {
-
   from: DayOfWeek;
   to?: DayOfWeek;
   openingHours: OpeningHours[];
