@@ -1,0 +1,6 @@
+.over{
+  z-index: 999;
+  position: absolute;
+  width: 30%;
+  height: 60%;
+}
