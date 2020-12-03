@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Restaurant} from "./model/restaurant.model";
+import {RestaurantService} from "../../services/restaurant.service";
+import {EMPTY, Observable} from "rxjs";
 
 @Component({
   selector: 'app-home-page',
@@ -6,11 +9,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-
-  constructor() {
-  }
+  lastRestaurantSelected: number;
 
   ngOnInit(): void {
+    this.restaurants$ = this.restaurantService.loadAll();
+  }
+
+  restaurantSelected$: Observable<Restaurant>;
+  restaurants$: Observable<Restaurant[]>;
+
+  constructor(private restaurantService: RestaurantService) {
+  }
+
+
+  selectRestaurant(restaurantSelected: Restaurant) {
+    if (this.lastRestaurantSelected !== restaurantSelected.id) {
+      this.restaurantSelected$ = this.restaurantService.getOne(restaurantSelected.id);
+      this.lastRestaurantSelected = restaurantSelected.id;
+    } else {
+      this.restaurantSelected$ = EMPTY;
+      this.lastRestaurantSelected = null;
+    }
+
   }
 
 }

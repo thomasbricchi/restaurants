@@ -1,22 +1,18 @@
-import {Component, OnInit} from '@angular/core';
-import {Observable} from "rxjs";
-import { Restaurant } from '../../model/restaurant.model';
-import { RestaurantService } from '../../../../services/restaurant.service';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Restaurant} from '../../model/restaurant.model';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
-export class ListComponent implements OnInit {
+export class ListComponent {
 
-  restaurant$: Observable<Restaurant[]>
+  @Input()
+  restaurants: Restaurant[];
 
-  constructor(private restaurantService: RestaurantService) {
-    this.restaurant$ = this.restaurantService.loadAll();
-  }
+  @Output()
+  restaurantClicked = new EventEmitter<Restaurant>();
 
-  ngOnInit(): void {
-  }
 
 }

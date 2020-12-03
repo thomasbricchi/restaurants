@@ -1,10 +1,18 @@
+<nav class="navbar navbar-light bg-light">
+  <h2>Restaurant</h2>
+</nav>
 <div class="container-fluid">
   <div class="row">
     <div class="col-4">
-      <app-list></app-list>
+      <app-list
+        [restaurants]="restaurants$ | async"
+        (restaurantClicked)="selectRestaurant($event)"></app-list>
     </div>
     <div class="col-8">
-      MAPPA
+      <ng-container *ngIf="restaurantSelected$ | async as restaurantSelected">
+        <app-restaurant-details [restaurant]="restaurantSelected"></app-restaurant-details>
+      </ng-container>
+      <app-map [restaurants]="restaurants$ | async"></app-map>
     </div>
   </div>
 </div>
