@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/core';
-import {Observable, of} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { Restaurant } from '../features/home-page/model/restaurant.model';
 
 @Injectable({
@@ -14,21 +14,6 @@ export class RestaurantService {
   }
 
   loadAll(): Observable<Restaurant[]> {
-    return of([{
-        id: 1,
-        name: '',
-        where: '',
-      },
-      {
-        id: 1,
-        name: '',
-        where: '',
-      },
-      {
-        id: 1,
-        name: '',
-        where: '',
-      }]);
-   // return this.http.get<Restaurant[]>(this.resourceUrl);
+    return this.http.get<Restaurant[]>(this.resourceUrl);
   }
 }
