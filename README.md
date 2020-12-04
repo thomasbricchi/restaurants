@@ -26,15 +26,15 @@ http://localhost
 
 ## TESTING APP
 
-#### BUILD BE-FILE-SAFE 
+#### BUILD BE-RESTAURANTS
 ```
 docker build -t thomas/be-restaurants -f restaurants/Dockerfile restaurants
 ```
-#### RUN BE-FILE-SAFE 
+#### RUN BE-RESTAURANTS 
 ```
 docker run -p 8080:8080 thomas/be-restaurants:latest
 ```
-#### RUN FE-SECURE-SAFE LOCALLY
+#### RUN FE-RESTAURANTS LOCALLY
 ```
 cd fe-restaurants && npm run start:test
 ```
