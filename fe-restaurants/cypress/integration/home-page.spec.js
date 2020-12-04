@@ -1,4 +1,4 @@
-describe('Login Feature', () => {
+describe('Home Page Feature', () => {
 
   it('should be enter in home page and see the list', () => {
 
@@ -34,13 +34,11 @@ describe('Login Feature', () => {
     cy.get("#details-1").should('not.exist');
   });
 
-
   it('should show details of restaurant when click on a card', () => {
 
     cy.visit('/');
 
     cy.contains('Heugümper').click();
-
 
     cy.get("#details-2");
     cy.get("#details-1").should('not.exist');
