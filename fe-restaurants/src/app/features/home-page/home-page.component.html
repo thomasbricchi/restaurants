@@ -10,7 +10,9 @@
     </div>
     <div class="col-7">
       <ng-container *ngIf="restaurantSelected$ | async as restaurantSelected">
-        <app-restaurant-details [restaurant]="restaurantSelected"></app-restaurant-details>
+        <app-restaurant-details (xClicked)="deselectRestaurant()"
+                                [restaurant]="restaurantSelected"
+        ></app-restaurant-details>
       </ng-container>
     </div>
   </div>

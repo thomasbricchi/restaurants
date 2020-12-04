@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Restaurant } from '../../model/restaurant.model';
 import { OpeningDays, transformDaysToOpeningDays } from '../../utils/opening-days.utils';
 
@@ -11,8 +11,8 @@ export class RestaurantDetailsComponent implements OnInit {
 
   @Input()
   restaurant: Restaurant;
-
-  listDays: any[];
+  @Output()
+  xClicked = new EventEmitter<void>();
   openingHours: OpeningDays[];
 
   constructor() {

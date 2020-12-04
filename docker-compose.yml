@@ -2,18 +2,18 @@ version: '3.7'
 
 services:
   nginx:
-    image: bricchi/fe-restaurants:latest
-    container_name: fe-restaurants
+    image: thomas/fe-restaurant:latest
+    container_name: fe-restaurant
     ports:
       - "80:80"
       - "443:443"
     depends_on:
-      - be-restaurants
+      - be-restaurant
     networks:
       - app-network
-  be-restaurants:
-    image: bricchi/be-file-safe:latest
-    container_name: be-filesafe-service
+  be-restaurant:
+    image: thomas/be-restaurant:latest
+    container_name: be-restaurant
     networks:
       - app-network
 networks:

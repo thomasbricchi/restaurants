@@ -29,13 +29,13 @@ export class HomePageComponent implements OnInit {
 
   }
 
+  deselectRestaurant(): void {
+    this.restaurantSelected$ = EMPTY;
+    this.lastRestaurantSelected = undefined;
+  }
+
   private selectNewRestaurant(id: number): void {
     this.restaurantSelected$ = this.restaurantService.getOne(id);
     this.lastRestaurantSelected = id;
-  }
-
-  private deselectRestaurant(): void {
-    this.restaurantSelected$ = EMPTY;
-    this.lastRestaurantSelected = undefined;
   }
 }
