@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { DayOfWeek } from '../features/home-page/model/enum/day-of-week.enum';
-import { Day } from '../features/home-page/model/day.model';
-import { Restaurant } from '../features/home-page/model/restaurant.model';
+import { Restaurant } from '../model/restaurant.model';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { toDay } from '../utils/to-day.utils';
 
 @Injectable({
   providedIn: 'root'
@@ -20,14 +19,12 @@ export class RestaurantService {
     return this.http.get<Restaurant[]>(this.resourceUrl);
   }
 
-
   getOne(id: number): Observable<Restaurant> {
-
     return this.http.get<Restaurant>(this.resourceUrl + '/' + id).pipe(
       map(restaurant => {
         return {
           ...restaurant,
-          openDetails: transformToMap(restaurant.openDetails)
+          openDetails: toDay(restaurant.openDetails)
         };
       })
     );
@@ -36,11 +33,3 @@ export class RestaurantService {
 }
 
 
-export const transformToMap = (openDetails: any): Day[] => {
-  let returnedOpen = [];
-  Object.keys(openDetails).forEach(day => {
-    const dayOfWeek = day as unknown as DayOfWeek;
-    returnedOpen = [...returnedOpen, {dayOfWeek, openingHours: openDetails[dayOfWeek]}];
-  });
-  return returnedOpen;
-};

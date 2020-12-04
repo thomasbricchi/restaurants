@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {Restaurant} from './model/restaurant.model';
-import {RestaurantService} from '../../services/restaurant.service';
-import {EMPTY, Observable} from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { Restaurant } from './model/restaurant.model';
+import { RestaurantService } from './services/restaurant.service';
+import { EMPTY, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home-page',
@@ -20,15 +20,22 @@ export class HomePageComponent implements OnInit {
     this.restaurants$ = this.restaurantService.loadAll();
   }
 
-  selectRestaurant(restaurantSelected: Restaurant) {
-    if (this.lastRestaurantSelected !== restaurantSelected.id) {
-      this.restaurantSelected$ = this.restaurantService.getOne(restaurantSelected.id);
-      this.lastRestaurantSelected = restaurantSelected.id;
+  resturantSelected({id}: Restaurant): void {
+    if (this.lastRestaurantSelected !== id) {
+      this.selectNewRestaurant(id);
     } else {
-      this.restaurantSelected$ = EMPTY;
-      this.lastRestaurantSelected = null;
+      this.deselectRestaurant();
     }
 
   }
 
+  deselectRestaurant(): void {
+    this.restaurantSelected$ = EMPTY;
+    this.lastRestaurantSelected = undefined;
+  }
+
+  private selectNewRestaurant(id: number): void {
+    this.restaurantSelected$ = this.restaurantService.getOne(id);
+    this.lastRestaurantSelected = id;
+  }
 }

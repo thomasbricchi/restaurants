@@ -1,16 +1,18 @@
 <nav class="navbar navbar-light bg-light">
-  <img src="assets/logo_restaurants.png" class="d-inline-block align-top" alt="">
+  <img alt="" class="d-inline-block align-top" src="assets/logo_restaurants.png">
 </nav>
 <div class="container">
   <div class="row">
     <div class="col-5">
       <app-list
-        [restaurants]="restaurants$ | async"
-        (restaurantClicked)="selectRestaurant($event)"></app-list>
+        (restaurantClicked)="resturantSelected($event)"
+        [restaurants]="restaurants$ | async"></app-list>
     </div>
     <div class="col-7">
       <ng-container *ngIf="restaurantSelected$ | async as restaurantSelected">
-        <app-restaurant-details [restaurant]="restaurantSelected"></app-restaurant-details>
+        <app-restaurant-details (xClicked)="deselectRestaurant()"
+                                [restaurant]="restaurantSelected"
+        ></app-restaurant-details>
       </ng-container>
     </div>
   </div>
