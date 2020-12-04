@@ -1,3 +1,6 @@
 .navbar.bg-light {
   background-color: #f5b367 !important;
 }
+.container{
+  max-width: 80%;
+}
