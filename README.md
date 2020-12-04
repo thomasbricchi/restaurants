@@ -28,23 +28,23 @@ http://localhost
 
 #### BUILD BE-FILE-SAFE 
 ```
-docker build -t bricchi/be-file-safe -f filesafe/Dockerfile filesafe
+docker build -t thomas/be-restaurants -f restaurants/Dockerfile restaurants
 ```
 #### RUN BE-FILE-SAFE 
 ```
-docker run -p 8080:8080 bricchi/be-file-safe:latest
+docker run -p 8080:8080 thomas/be-restaurants:latest
 ```
 #### RUN FE-SECURE-SAFE LOCALLY
 ```
-cd secure-safe && npm run start:test
+cd fe-restaurants && npm run start:test
 ```
 ###Cypress:
 
 ##### RUN CYPRESS LOCALLY
 ```
-cd secure-safe && npm run cy:run
+cd fe-restaurants && npm run cy:run
 ```
 ##### OPEN CYPRESS LOCALLY
 ```
-cd secure-safe && npm run cy:open
+cd fe-restaurants && npm run cy:open
 ```
