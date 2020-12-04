@@ -9,8 +9,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MvcResult;
 
 import java.time.DayOfWeek;
+import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -30,24 +30,24 @@ public class RestaurantControllerGetOneTest extends BaseRestIntegrationTest {
             .andReturn();
 
         final RestaurantDTO restaurantDTO = this.objectMapper.readValue(mvcResult.getResponse().getContentAsString(), RestaurantDTO.class);
-        assertThat(restaurantDTO.getName()).isEqualTo("viale paoli 24");
-        assertThat(restaurantDTO.getAddress()).isEqualTo("REST");
-        assertThat(restaurantDTO.getCuisineType()).isEqualTo("CINESE");
+        assertThat(restaurantDTO.getName()).isEqualTo("La Pasta");
+        assertThat(restaurantDTO.getAddress()).isEqualTo("Niederdorfstrasse 80, 8001 ZÃ¼rich, Schweiz");
+        assertThat(restaurantDTO.getCuisineType()).isEqualTo("Italian");
 
-        final Map<DayOfWeek, List<OpenDetailsDTO>> openDetails = restaurantDTO.getOpenDetails();
+        final LinkedHashMap<DayOfWeek, List<OpenDetailsDTO>> openDetails = restaurantDTO.getOpenDetails();
         assertThat(openDetails).hasSize(7);
         {
             final List<OpenDetailsDTO> openDetailsDTOS = openDetails.get(DayOfWeek.MONDAY);
             {
                 final OpenDetailsDTO openDetailsDTO = openDetailsDTOS.get(0);
                 assertThat(openDetailsDTO.getStart()).isEqualTo("11:30");
-                assertThat(openDetailsDTO.getEnd()).isEqualTo("14:30");
+                assertThat(openDetailsDTO.getEnd()).isEqualTo("14:00");
                 assertThat(openDetailsDTO.getType()).isEqualTo(TypeEnum.OPEN);
             }
             {
                 final OpenDetailsDTO openDetailsDTO = openDetailsDTOS.get(1);
-                assertThat(openDetailsDTO.getStart()).isEqualTo("18:30");
-                assertThat(openDetailsDTO.getEnd()).isEqualTo("23:00");
+                assertThat(openDetailsDTO.getStart()).isEqualTo("17:30");
+                assertThat(openDetailsDTO.getEnd()).isEqualTo("22:00");
                 assertThat(openDetailsDTO.getType()).isEqualTo(TypeEnum.OPEN);
             }
         }
@@ -57,16 +57,18 @@ public class RestaurantControllerGetOneTest extends BaseRestIntegrationTest {
             {
                 final OpenDetailsDTO openDetailsDTO = openDetailsDTOS.get(0);
                 assertThat(openDetailsDTO.getStart()).isEqualTo("11:30");
-                assertThat(openDetailsDTO.getEnd()).isEqualTo("14:30");
+                assertThat(openDetailsDTO.getEnd()).isEqualTo("14:00");
                 assertThat(openDetailsDTO.getType()).isEqualTo(TypeEnum.OPEN);
             }
             {
                 final OpenDetailsDTO openDetailsDTO = openDetailsDTOS.get(1);
-                assertThat(openDetailsDTO.getStart()).isEmpty();
-                assertThat(openDetailsDTO.getEnd()).isEmpty();
-                assertThat(openDetailsDTO.getType()).isEqualTo(TypeEnum.CLOSE);
+                assertThat(openDetailsDTO.getStart()).isEqualTo("17:30");
+                assertThat(openDetailsDTO.getEnd()).isEqualTo("23:00");
+                assertThat(openDetailsDTO.getType()).isEqualTo(TypeEnum.OPEN);
             }
         }
+        assertThat(openDetails.get(DayOfWeek.SUNDAY)).isEmpty();
+
 
     }
 

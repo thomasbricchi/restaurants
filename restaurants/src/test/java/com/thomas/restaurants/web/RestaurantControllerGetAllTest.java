@@ -32,9 +32,9 @@ public class RestaurantControllerGetAllTest extends BaseRestIntegrationTest {
 
         assertThat(restaurantDTOS).hasSize(3);
 
-        assertRestaurant(restaurantDTOS, 1L, "viale paoli 24", "REST", "CINESE");
-        assertRestaurant(restaurantDTOS, 2L, "viale paoli 24", "REST2", "ITALIANO");
-        assertRestaurant(restaurantDTOS, 3L, "viale paoli 24", "REST3", "CANADESE");
+        assertRestaurant(restaurantDTOS, 1L, "La Pasta", "Niederdorfstrasse 80, 8001 ZÃ¼rich, Schweiz", "Italian");
+        assertRestaurant(restaurantDTOS, 2L, "HeugÃ¼mper", "Waaggasse 4, 8001 ZÃ¼rich, Schweiz", "Fusion");
+        assertRestaurant(restaurantDTOS, 3L, "Mesa", "Weinbergstrasse 75, 8006 ZÃ¼rich, Schweiz", "European");
 
 
     }
