@@ -1,7 +1,16 @@
 <div class="card bg-light over">
   <div class="row">
-    <div class="col">
-      <img [src]="'assets/restaurantid'+restaurant.id+'.JPG'" class="card-img-top" alt="">
+    <div class="col-11">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col">
+            <img [src]="'assets/foodid'+restaurant.id+'.JPG'" class="card-img-top" alt="">
+          </div>
+          <div class="col">
+            <img [src]="'assets/food2id'+restaurant.id+'.JPG'" class="card-img-top" alt="">
+          </div>
+        </div>
+      </div>
     </div>
     <div class="col">
       <button type="button" class="close" aria-label="Close">
