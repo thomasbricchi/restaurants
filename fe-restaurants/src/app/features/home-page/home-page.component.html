@@ -3,12 +3,12 @@
 </nav>
 <div class="container">
   <div class="row">
-    <div class="col-5">
+    <div class="col-sm-12 col-xl-5">
       <app-list
         (restaurantClicked)="restaurntSelected($event)"
         [restaurants]="restaurants$ | async"></app-list>
     </div>
-    <div class="col-7">
+    <div class="col-sm-12 col-xl-7 mt-3">
       <ng-container *ngIf="restaurantSelected$ | async as restaurantSelected">
         <app-restaurant-details (xClicked)="deselectRestaurant()"
                                 [restaurant]="restaurantSelected"

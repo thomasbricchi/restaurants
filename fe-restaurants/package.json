@@ -8,7 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "start:test": "ng serve -c=testing"
+    "start:test": "ng serve -c=testing",
+    "cy:run": "cypress run --headless -b chrome",
+    "cy:open": "cypress open"
   },
   "private": true,
   "dependencies": {
@@ -21,6 +23,9 @@
     "@angular/platform-browser": "~11.0.1",
     "@angular/platform-browser-dynamic": "~11.0.1",
     "@angular/router": "~11.0.1",
+    "@fortawesome/angular-fontawesome": "^0.8.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "bootstrap": "^4.5.3",
     "ng-mocks": "^11.1.4",
     "rxjs": "~6.6.0",
@@ -34,6 +39,7 @@
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
+    "cypress": "^6.0.1",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~5.1.0",

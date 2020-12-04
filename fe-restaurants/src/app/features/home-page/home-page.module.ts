@@ -4,6 +4,7 @@ import { HomePageComponent } from './home-page.component';
 import { ListComponent } from './components/list/list.component';
 import { CardRestaurantComponent } from './components/card-restaurant/card-restaurant.component';
 import { RestaurantDetailsComponent } from './components/restaurant-details/restaurant-details.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { RestaurantDetailsComponent } from './components/restaurant-details/rest
     RestaurantDetailsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FontAwesomeModule
   ], exports: [HomePageComponent]
 })
 export class HomePageModule {

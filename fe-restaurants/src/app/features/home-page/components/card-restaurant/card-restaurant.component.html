@@ -1,14 +1,16 @@
-<div class="card bg-light mb-3 clicked" (click)="restaurantClicked.emit()">
-  <h5 class="card-header">{{restaurant.name}}</h5>
+<div (click)="restaurantClicked.emit()" class="card bg-light clicked">
+  <h5 class="card-header"><strong>{{restaurant.name}}</strong></h5>
   <div class="row no-gutters">
-    <div class="col-md-8">
+    <div class="col-md-8 col-xl-8">
       <div class="card-body text-primary">
-        <p class="card-text">{{restaurant.address}}</p>
+        <p class="card-text">
+          <fa-icon [icon]="faMapMarkerAlt"></fa-icon>
+          {{restaurant.address}}</p>
         <p class="card-text"><small class="text-muted"><b>Type of cuisine: </b>{{restaurant.cuisineType}}</small></p>
       </div>
     </div>
-    <div class="col-md-4">
-      <img [src]="'assets/restaurantid'+restaurant.id+'.JPG'" class="card-img h-100" alt="">
+    <div class="col-sm-4 col-xl-4">
+      <img [src]="'assets/restaurantid'+restaurant.id+'.JPG'" alt="" class="card-img h-100">
     </div>
   </div>
 </div>
