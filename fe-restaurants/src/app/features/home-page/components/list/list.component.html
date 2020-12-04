@@ -1,9 +1,7 @@
-<div class="list-restaurant vh-100">
-  <div class="container">
-    <div *ngFor="let restaurant of restaurants">
-      <app-card-restaurant [restaurant]="restaurant"
-                           (restaurantClicked)="restaurantClicked.emit(restaurant)"
-      ></app-card-restaurant>
-    </div>
+<div class="container list-restaurant vh-100">
+  <div *ngFor="let restaurant of restaurants">
+    <app-card-restaurant [restaurant]="restaurant"
+                         (restaurantClicked)="restaurantClicked.emit(restaurant)"
+    ></app-card-restaurant>
   </div>
 </div>
