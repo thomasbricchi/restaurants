@@ -1,0 +1,1 @@
+docker build -t thomas/fe-restaurants -f fe-restaurants/Dockerfile fe-restaurants && docker build -t thomas/be-restaurants -f restaurants/Dockerfile restaurants && docker-compose -f docker-compose.yml up -d

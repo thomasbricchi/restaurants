@@ -4,7 +4,7 @@ import { HomePageComponent } from './home-page.component';
 import { createRestaurant, createRestaurantWithDetails, TestUtils } from '../../../test-utils/test-utils';
 import { RestaurantService } from './services/restaurant.service';
 import SpyObj = jasmine.SpyObj;
-import { of } from 'rxjs';
+import { NEVER, of } from 'rxjs';
 import { MockComponents } from 'ng-mocks';
 import { ListComponent } from './components/list/list.component';
 import { RestaurantDetailsComponent } from './components/restaurant-details/restaurant-details.component';
@@ -28,7 +28,7 @@ describe('HomePageComponent', () => {
     component = fixture.componentInstance;
     testUtils = new TestUtils<HomePageComponent>(fixture);
     restaurantService = TestBed.inject(RestaurantService) as SpyObj<RestaurantService>;
-
+    restaurantService.loadAll.and.returnValue(NEVER);
   });
 
 
