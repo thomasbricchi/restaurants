@@ -1,1 +1,5 @@
-<app-home-page></app-home-page>
+<nav class="navbar navbar-light bg-light">
+  <img alt="" class="d-inline-block align-top" src="assets/logo_restaurants.png">
+</nav>
+<app-home-page *ngIf="showApp$ | async"></app-home-page>
+<ngx-spinner></ngx-spinner>

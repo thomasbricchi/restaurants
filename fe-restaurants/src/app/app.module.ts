@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomePageModule } from './features/home-page/home-page.module';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { HomePageModule } from './features/home-page/home-page.module';
     BrowserModule,
     HttpClientModule,
     HomePageModule,
+    NgxSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
