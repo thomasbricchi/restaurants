@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  nginx:
+    image: thomas/fe-restaurants:latest
+    container_name: fe-restaurants
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - be-restaurants
+    networks:
+      - app-network
+  be-restaurants:
+    image: thomas/be-restaurants:latest
+    container_name: be-restaurants
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge

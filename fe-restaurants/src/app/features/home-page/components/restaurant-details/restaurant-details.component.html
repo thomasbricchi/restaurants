@@ -1,0 +1,51 @@
+<div class="card bg-light pt-3" id="details-{{restaurant.id}}">
+  <div class="row no-gutters">
+    <div class="col-11">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col">
+            <img [src]="'assets/foodid'+restaurant.id+'.JPG'" alt="" class="card-img-top">
+          </div>
+          <div class="col">
+            <img [src]="'assets/food2id'+restaurant.id+'.JPG'" alt="" class="card-img-top">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col pr-4">
+      <button (click)="xClicked.emit()" aria-label="Close" class="close" type="button">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+  <h5 class="card-header"><strong>{{restaurant.name}}</strong></h5>
+  <div class="card-body">
+    <p class="card-text"><strong>Address: </strong>{{restaurant.address}}</p>
+    <p class="card-text"><strong>Cuisine Type: </strong>{{restaurant.cuisineType}}</p>
+    <p class="card-text"><strong>Opening Hours:</strong></p>
+    <div *ngFor="let op of openingHours">
+      <div class="row ml-5">
+        <div class="col-sm-12 col-md-5 col-xl-5">
+          <div> {{op.label | titlecase}}</div>
+        </div>
+        <div class="col-sm-12 col-md-7 col-xl-7">
+          <div class="row">
+            <label *ngIf="op.openingHours.length === 0; else closing">Close</label>
+            <ng-template #closing>
+              <div *ngFor="let od of op.openingHours; let i = index;">
+                <label>
+                  <ng-container *ngIf="i > 0">
+                    ,
+                  </ng-container>
+                  {{od.start}} - {{od.end}}
+                </label>
+              </div>
+            </ng-template>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

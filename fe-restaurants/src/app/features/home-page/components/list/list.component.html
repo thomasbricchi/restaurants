@@ -1,0 +1,7 @@
+<div class="container">
+  <div *ngFor="let restaurant of restaurants" class="pt-3">
+    <app-card-restaurant (restaurantClicked)="restaurantClicked.emit(restaurant)"
+                         [restaurant]="restaurant"
+    ></app-card-restaurant>
+  </div>
+</div>
